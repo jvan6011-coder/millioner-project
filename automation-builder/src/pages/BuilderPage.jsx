@@ -27,10 +27,13 @@ export default function BuilderPage() {
     if (id) {
       const loaded = loadWorkflow(id)
       if (!loaded) {
-        navigate('/builder')
+        navigate('/')
       }
-    } else if (!currentWorkflow) {
-      createWorkflow()
+    } else {
+      const wf = createWorkflow()
+      if (wf) {
+        navigate(`/builder/${wf.id}`, { replace: true })
+      }
     }
   }, [id])
 
