@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Large media files (deployed via Vercel, not git)
+*.mp4
