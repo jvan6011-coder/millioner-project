@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, Zap } from 'lucide-react'
 import Button from '../ui/Button'
+import ThemeToggle from '../ui/ThemeToggle'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
@@ -37,7 +38,8 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <div className="ml-4">
+            <ThemeToggle />
+            <div className="ml-2">
               <Button size="sm">Book a Call</Button>
             </div>
           </div>

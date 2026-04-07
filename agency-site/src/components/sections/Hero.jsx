@@ -7,7 +7,7 @@ import GlowOrb from '../ui/GlowOrb'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden">
       {/* Particle background */}
       <Particles count={60} />
 
@@ -48,9 +48,12 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="flex justify-center my-10"
+          className="flex justify-center my-10 overflow-visible"
+          style={{ minHeight: 320 }}
         >
-          <GlowOrb size={240} />
+          <div className="overflow-visible" style={{ width: 280, height: 280 }}>
+            <GlowOrb size={280} />
+          </div>
         </motion.div>
 
         <motion.p

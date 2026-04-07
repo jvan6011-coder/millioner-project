@@ -46,5 +46,6 @@ export const pricingTiers = [
     ],
     cta: 'Contact Us',
     highlighted: false,
+    premium: true,
   },
 ]

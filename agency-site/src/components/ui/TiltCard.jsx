@@ -34,7 +34,7 @@ export default function TiltCard({ children, className = '' }) {
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative overflow-hidden ${className}`}
+      className={`relative overflow-visible ${className}`}
       style={{
         transform,
         transition: 'transform 0.2s ease-out',
