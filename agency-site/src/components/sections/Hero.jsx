@@ -12,7 +12,7 @@ export default function Hero() {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: 'brightness(0.4) saturate(1.2)', objectPosition: 'center 60%' }}
+        style={{ filter: 'brightness(0.4) saturate(1.2)', objectPosition: 'center 40%' }}
       >
         <source src="/hero-bg.mp4" type="video/mp4" />
       </video>

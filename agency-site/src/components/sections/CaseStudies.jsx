@@ -1,6 +1,7 @@
 import SectionHeading from '../ui/SectionHeading'
 import AnimatedSection from '../ui/AnimatedSection'
 import TiltCard from '../ui/TiltCard'
+import CyberIllustration from '../ui/CyberIllustration'
 import { caseStudies } from '../../data/caseStudies'
 import { ArrowUpRight } from 'lucide-react'
 
@@ -19,16 +20,16 @@ export default function CaseStudies() {
             <AnimatedSection key={i} delay={i * 0.12} direction={i % 2 === 0 ? 'left' : 'right'}>
               <TiltCard>
                 <div className="group relative rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-default)' }}>
-                  {/* Gradient header */}
-                  <div className={`h-32 sm:h-44 bg-gradient-to-br ${study.gradient} relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+                  {/* Cyberpunk illustration header */}
+                  <div className="h-40 sm:h-48 relative overflow-hidden" style={{ backgroundColor: 'var(--bg-base)' }}>
+                    <CyberIllustration index={i} />
                     {/* Animated shine on hover */}
-                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
-                    <div className="absolute bottom-4 left-6">
-                      <span className="text-white/70 text-xs font-medium uppercase" style={{ letterSpacing: '0.05em' }}>{study.client}</span>
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12" />
+                    <div className="absolute bottom-3 left-5">
+                      <span className="text-indigo-400/70 text-xs font-medium uppercase" style={{ letterSpacing: '0.05em' }}>{study.client}</span>
                     </div>
-                    <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300">
-                      <ArrowUpRight className="w-4 h-4 text-white" />
+                    <div className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300" style={{ backgroundColor: 'var(--accent-primary-muted)' }}>
+                      <ArrowUpRight className="w-4 h-4 text-indigo-400" />
                     </div>
                   </div>
 
