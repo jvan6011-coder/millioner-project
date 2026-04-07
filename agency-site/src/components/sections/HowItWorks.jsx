@@ -1,22 +1,29 @@
 import { Phone, Target, Code2, Rocket } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import AnimatedSection from '../ui/AnimatedSection'
+import { useLanguage } from '../../context/LanguageContext'
 
-const steps = [
-  { icon: Phone, title: 'Discovery Call', description: 'We learn about your business, pain points, and goals. You get a clear picture of what AI can do for you.' },
-  { icon: Target, title: 'Strategy & Scoping', description: 'We identify the highest-ROI opportunity and design a solution with clear milestones and success metrics.' },
-  { icon: Code2, title: 'Build & Iterate', description: 'Our team builds your solution in rapid sprints. You see progress every week and provide feedback in real-time.' },
-  { icon: Rocket, title: 'Launch & Support', description: 'We deploy to production, train your team, and provide ongoing support to ensure long-term success.' },
-]
+const stepIcons = [Phone, Target, Code2, Rocket]
 
 export default function HowItWorks() {
+  const { t } = useLanguage()
+
+  const stepTitles = t('howItWorks.steps')
+  const stepDescs = t('howItWorks.step_descs')
+
+  const steps = stepIcons.map((icon, i) => ({
+    icon,
+    title: stepTitles[i],
+    description: stepDescs[i],
+  }))
+
   return (
     <section id="how-it-works" className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-secondary)' }}>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          label="Our Process"
-          title="From Idea to Production in Weeks"
-          subtitle="A proven 4-step process that minimizes risk and maximizes speed. No surprises, no scope creep."
+          label={t('howItWorks.label')}
+          title={t('howItWorks.title')}
+          subtitle={t('howItWorks.subtitle')}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 lg:gap-8">

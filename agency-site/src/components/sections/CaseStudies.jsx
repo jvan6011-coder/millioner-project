@@ -2,21 +2,25 @@ import SectionHeading from '../ui/SectionHeading'
 import AnimatedSection from '../ui/AnimatedSection'
 import TiltCard from '../ui/TiltCard'
 import CyberIllustration from '../ui/CyberIllustration'
-import { caseStudies } from '../../data/caseStudies'
 import { ArrowUpRight } from 'lucide-react'
+import { useLanguage } from '../../context/LanguageContext'
 
 export default function CaseStudies() {
+  const { t } = useLanguage()
+
+  const cases = t('caseStudies.cases')
+
   return (
     <section id="case-studies" className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-primary)' }}>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          label="Our Work"
-          title="Real Results for Real Businesses"
-          subtitle="Every project starts with a problem and ends with measurable impact. Here's what we've delivered."
+          label={t('caseStudies.label')}
+          title={t('caseStudies.title')}
+          subtitle={t('caseStudies.subtitle')}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {caseStudies.map((study, i) => (
+          {cases.map((study, i) => (
             <AnimatedSection key={i} delay={i * 0.12} direction={i % 2 === 0 ? 'left' : 'right'}>
               <TiltCard>
                 <div className="group relative rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-default)' }}>

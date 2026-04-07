@@ -2,18 +2,29 @@ import { Brain, Workflow, LineChart } from 'lucide-react'
 import TiltCard from '../ui/TiltCard'
 import SectionHeading from '../ui/SectionHeading'
 import AnimatedSection from '../ui/AnimatedSection'
-import { services } from '../../data/services'
+import { useLanguage } from '../../context/LanguageContext'
 
 const iconMap = { Brain, Workflow, LineChart }
+const iconKeys = ['Brain', 'Workflow', 'LineChart']
+const serviceKeys = ['ai_dev', 'automation', 'consulting']
 
 export default function Services() {
+  const { t } = useLanguage()
+
+  const services = serviceKeys.map((key, i) => ({
+    icon: iconKeys[i],
+    title: t(`services.${key}_title`),
+    description: t(`services.${key}_desc`),
+    features: t(`services.${key}_features`),
+  }))
+
   return (
     <section id="services" className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-primary)' }}>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          label="What We Do"
-          title="AI Solutions That Drive Real Results"
-          subtitle="We don't just build AI — we build AI that pays for itself. Every solution is designed around measurable business outcomes."
+          label={t('services.label')}
+          title={t('services.title')}
+          subtitle={t('services.subtitle')}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">

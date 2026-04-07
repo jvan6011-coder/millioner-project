@@ -1,6 +1,9 @@
 import { Zap, Globe, MessageCircle, Share2, Mail } from 'lucide-react'
+import { useLanguage } from '../../context/LanguageContext'
 
 export default function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer style={{ backgroundColor: 'var(--bg-base)', borderTop: '1px solid var(--border-color)' }}>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
@@ -13,32 +16,32 @@ export default function Footer() {
               NexusAI
             </a>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--text-muted)' }}>
-              We build AI solutions that transform how businesses operate. Faster. Smarter. More efficient.
+              {t('footer.desc')}
             </p>
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider mb-5" style={{ color: 'var(--text-primary)', letterSpacing: '0.05em' }}>Services</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider mb-5" style={{ color: 'var(--text-primary)', letterSpacing: '0.05em' }}>{t('footer.services')}</h4>
             <ul className="space-y-3 text-sm" style={{ color: 'var(--text-secondary)' }}>
-              <li><a href="#services" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">AI Development</a></li>
-              <li><a href="#services" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">Process Automation</a></li>
-              <li><a href="#services" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">AI Consulting</a></li>
-              <li><a href="#pricing" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">Pricing</a></li>
+              <li><a href="#services" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">{t('footer.ai_dev')}</a></li>
+              <li><a href="#services" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">{t('footer.automation')}</a></li>
+              <li><a href="#services" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">{t('footer.consulting')}</a></li>
+              <li><a href="#pricing" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">{t('pricing.label')}</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider mb-5" style={{ color: 'var(--text-primary)', letterSpacing: '0.05em' }}>Company</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider mb-5" style={{ color: 'var(--text-primary)', letterSpacing: '0.05em' }}>{t('footer.company')}</h4>
             <ul className="space-y-3 text-sm" style={{ color: 'var(--text-secondary)' }}>
-              <li><a href="#case-studies" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">Case Studies</a></li>
-              <li><a href="#" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">About Us</a></li>
-              <li><a href="#" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">Blog</a></li>
-              <li><a href="#contact" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">Contact</a></li>
+              <li><a href="#case-studies" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">{t('footer.case_studies')}</a></li>
+              <li><a href="#" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">{t('footer.about')}</a></li>
+              <li><a href="#" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">{t('footer.blog')}</a></li>
+              <li><a href="#contact" className="hover:text-[var(--text-primary)] transition-colors duration-200 inline-block py-1">{t('footer.contact')}</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider mb-5" style={{ color: 'var(--text-primary)', letterSpacing: '0.05em' }}>Connect</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider mb-5" style={{ color: 'var(--text-primary)', letterSpacing: '0.05em' }}>{t('footer.connect')}</h4>
             <div className="flex gap-2.5 justify-center sm:justify-start">
               {[
                 { Icon: MessageCircle, href: '#' },
@@ -55,10 +58,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs" style={{ borderTop: '1px solid var(--border-color)', color: 'var(--text-faint)' }}>
-          <span>&copy; {new Date().getFullYear()} NexusAI. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} NexusAI. {t('footer.rights')}</span>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-[var(--text-secondary)] transition-colors duration-200">Privacy Policy</a>
-            <a href="#" className="hover:text-[var(--text-secondary)] transition-colors duration-200">Terms of Service</a>
+            <a href="#" className="hover:text-[var(--text-secondary)] transition-colors duration-200">{t('footer.privacy')}</a>
+            <a href="#" className="hover:text-[var(--text-secondary)] transition-colors duration-200">{t('footer.terms')}</a>
           </div>
         </div>
       </div>

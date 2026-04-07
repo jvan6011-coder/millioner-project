@@ -2,18 +2,21 @@ import { useState, useEffect } from 'react'
 import { Menu, X, Zap } from 'lucide-react'
 import Button from '../ui/Button'
 import ThemeToggle from '../ui/ThemeToggle'
-
-const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Case Studies', href: '#case-studies' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Contact', href: '#contact' },
-]
+import LanguageSwitcher from '../ui/LanguageSwitcher'
+import { useLanguage } from '../../context/LanguageContext'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { t } = useLanguage()
+
+  const navLinks = [
+    { label: t('nav.services'), href: '#services' },
+    { label: t('nav.howItWorks'), href: '#how-it-works' },
+    { label: t('nav.caseStudies'), href: '#case-studies' },
+    { label: t('nav.pricing'), href: '#pricing' },
+    { label: t('nav.contact'), href: '#contact' },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -39,9 +42,10 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <LanguageSwitcher />
             <ThemeToggle />
             <div className="ml-2">
-              <Button size="sm">Book a Call</Button>
+              <Button size="sm">{t('nav.bookCall')}</Button>
             </div>
           </div>
 
@@ -60,8 +64,9 @@ export default function Navbar() {
               </a>
             ))}
             <div className="flex items-center justify-between pt-3 pb-1 gap-3">
+              <LanguageSwitcher />
               <ThemeToggle />
-              <Button size="sm" className="flex-1" style={{ minHeight: '44px' }}>Book a Call</Button>
+              <Button size="sm" className="flex-1" style={{ minHeight: '44px' }}>{t('nav.bookCall')}</Button>
             </div>
           </div>
         </div>

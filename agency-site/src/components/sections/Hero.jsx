@@ -1,8 +1,18 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import MagneticButton from '../ui/MagneticButton'
+import { useLanguage } from '../../context/LanguageContext'
 
 export default function Hero() {
+  const { t } = useLanguage()
+
+  const stats = [
+    { value: t('hero.stat_1_value'), label: t('hero.stat_1_label') },
+    { value: t('hero.stat_2_value'), label: t('hero.stat_2_label') },
+    { value: t('hero.stat_3_value'), label: t('hero.stat_3_label') },
+    { value: t('hero.stat_4_value'), label: t('hero.stat_4_label') },
+  ]
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video background */}
@@ -31,7 +41,7 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-400 text-xs font-semibold uppercase mb-6 sm:mb-8 backdrop-blur-sm" style={{ letterSpacing: '0.05em' }}>
             <Sparkles className="w-3.5 h-3.5" />
-            AI-Powered Business Solutions
+            {t('hero.badge')}
           </span>
         </motion.div>
 
@@ -42,10 +52,10 @@ export default function Hero() {
           className="mb-6 text-[clamp(2rem,5vw,4rem)] leading-[1.1]"
           style={{ color: '#ffffff', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-0.03em', fontWeight: 700, textShadow: '0 2px 40px rgba(0,0,0,0.3)' }}
         >
-          We Build AI That
+          {t('hero.title_1')}
           <br />
           <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient-shift_3s_ease-in-out_infinite]">
-            Works For Your Business
+            {t('hero.title_2')}
           </span>
         </motion.h1>
 
@@ -56,8 +66,7 @@ export default function Hero() {
           className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2 sm:px-0"
           style={{ color: 'rgba(255,255,255,0.75)', letterSpacing: '-0.014em', textShadow: '0 1px 20px rgba(0,0,0,0.2)' }}
         >
-          From intelligent automation to custom AI solutions, we help companies
-          cut costs by 40-70% and ship 10x faster. No fluff. Just results.
+          {t('hero.subtitle')}
         </motion.p>
 
         <motion.div
@@ -67,11 +76,11 @@ export default function Hero() {
           className="flex flex-col min-[400px]:flex-row items-center justify-center gap-3 sm:gap-4"
         >
           <MagneticButton size="lg" variant="primary">
-            Book a Free Consultation
+            {t('hero.cta_primary')}
             <ArrowRight className="w-5 h-5 ml-2" />
           </MagneticButton>
           <MagneticButton variant="outline" size="lg">
-            See Our Work
+            {t('hero.cta_secondary')}
           </MagneticButton>
         </motion.div>
 
@@ -83,12 +92,7 @@ export default function Hero() {
           className="mt-14 sm:mt-20 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-3xl mx-auto pt-8 sm:pt-12"
           style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
         >
-          {[
-            { value: '50+', label: 'Projects Delivered' },
-            { value: '93%', label: 'Client Retention' },
-            { value: '2-6', label: 'Weeks to Launch' },
-            { value: '40-70%', label: 'Cost Reduction' },
-          ].map((stat, i) => (
+          {stats.map((stat, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.8 }}

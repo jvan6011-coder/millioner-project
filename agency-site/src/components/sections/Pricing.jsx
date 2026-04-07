@@ -3,7 +3,7 @@ import MagneticButton from '../ui/MagneticButton'
 import SectionHeading from '../ui/SectionHeading'
 import AnimatedSection from '../ui/AnimatedSection'
 import TiltCard from '../ui/TiltCard'
-import { pricingTiers } from '../../data/pricing'
+import { useLanguage } from '../../context/LanguageContext'
 
 function getCardStyle(tier) {
   if (tier.premium) {
@@ -27,13 +27,19 @@ function getCardStyle(tier) {
 }
 
 export default function Pricing() {
+  const { t } = useLanguage()
+
+  const pricingTiers = t('pricing.tiers')
+  const mostPopularLabel = t('pricing.mostPopular')
+  const premiumLabel = t('pricing.premium')
+
   return (
     <section id="pricing" className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-secondary)' }}>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          label="Pricing"
-          title="Transparent Pricing, Real ROI"
-          subtitle="Every engagement is designed to pay for itself. Choose the model that fits your needs."
+          label={t('pricing.label')}
+          title={t('pricing.title')}
+          subtitle={t('pricing.subtitle')}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch pt-4">
@@ -46,13 +52,13 @@ export default function Pricing() {
                     <div className="flex justify-center mb-5 -mt-1">
                       {tier.highlighted && (
                         <span className="px-4 py-1.5 bg-indigo-500 text-white text-[11px] font-semibold uppercase rounded-full shadow-lg shadow-indigo-500/30" style={{ letterSpacing: '0.05em' }}>
-                          Most Popular
+                          {mostPopularLabel}
                         </span>
                       )}
                       {tier.premium && (
                         <span className="px-4 py-1.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[11px] font-semibold uppercase rounded-full shadow-lg shadow-amber-500/30 flex items-center gap-1.5" style={{ letterSpacing: '0.05em' }}>
                           <Crown className="w-3 h-3" />
-                          Premium
+                          {premiumLabel}
                         </span>
                       )}
                     </div>
