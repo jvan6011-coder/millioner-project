@@ -40,20 +40,25 @@ export default function Pricing() {
           {pricingTiers.map((tier, i) => (
             <AnimatedSection key={i} delay={i * 0.15} direction="scale">
               <TiltCard className="h-full">
-                <div className="relative rounded-2xl p-5 sm:p-7 lg:p-8 h-full flex flex-col transition-all duration-300 overflow-hidden" style={getCardStyle(tier)}>
-                  {tier.highlighted && (
-                    <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-indigo-500 text-white text-[11px] font-semibold uppercase rounded-full shadow-lg shadow-indigo-500/30 z-10" style={{ letterSpacing: '0.05em' }}>
-                      Most Popular
-                    </span>
-                  )}
-                  {tier.premium && (
-                    <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[11px] font-semibold uppercase rounded-full shadow-lg shadow-amber-500/30 z-10 flex items-center gap-1.5" style={{ letterSpacing: '0.05em' }}>
-                      <Crown className="w-3 h-3" />
-                      Premium
-                    </span>
+                <div className="relative rounded-2xl p-5 sm:p-7 lg:p-8 h-full flex flex-col transition-all duration-300" style={getCardStyle(tier)}>
+                  {/* Badge - inline at top */}
+                  {(tier.highlighted || tier.premium) && (
+                    <div className="flex justify-center mb-5 -mt-1">
+                      {tier.highlighted && (
+                        <span className="px-4 py-1.5 bg-indigo-500 text-white text-[11px] font-semibold uppercase rounded-full shadow-lg shadow-indigo-500/30" style={{ letterSpacing: '0.05em' }}>
+                          Most Popular
+                        </span>
+                      )}
+                      {tier.premium && (
+                        <span className="px-4 py-1.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[11px] font-semibold uppercase rounded-full shadow-lg shadow-amber-500/30 flex items-center gap-1.5" style={{ letterSpacing: '0.05em' }}>
+                          <Crown className="w-3 h-3" />
+                          Premium
+                        </span>
+                      )}
+                    </div>
                   )}
 
-                  {/* Premium gold shimmer border */}
+                  {/* Premium gold shimmer */}
                   {tier.premium && (
                     <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/10 to-transparent animate-[gradient-shift_4s_ease-in-out_infinite] bg-[length:200%_auto]" />
