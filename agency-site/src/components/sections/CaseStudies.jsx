@@ -6,8 +6,8 @@ import { ArrowUpRight } from 'lucide-react'
 
 export default function CaseStudies() {
   return (
-    <section id="case-studies" className="py-24 md:py-32 bg-[#0f1117]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="case-studies" className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-primary)' }}>
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Our Work"
           title="Real Results for Real Businesses"
@@ -18,28 +18,28 @@ export default function CaseStudies() {
           {caseStudies.map((study, i) => (
             <AnimatedSection key={i} delay={i * 0.12} direction={i % 2 === 0 ? 'left' : 'right'}>
               <TiltCard>
-                <div className="group relative bg-[#1c1e2a] border border-white/[0.08] rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]">
+                <div className="group relative rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-default)' }}>
                   {/* Gradient header */}
                   <div className={`h-44 bg-gradient-to-br ${study.gradient} relative overflow-hidden`}>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
                     {/* Animated shine on hover */}
                     <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
                     <div className="absolute bottom-4 left-6">
-                      <span className="text-white/70 text-xs font-medium uppercase tracking-wider">{study.client}</span>
+                      <span className="text-white/70 text-xs font-medium uppercase" style={{ letterSpacing: '0.05em' }}>{study.client}</span>
                     </div>
                     <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-300">
                       <ArrowUpRight className="w-4 h-4 text-white" />
                     </div>
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-indigo-300 transition-colors tracking-tight">{study.title}</h3>
-                    <p className="text-[#94a3b8] text-sm leading-relaxed mb-5">{study.description}</p>
+                  <div className="p-7">
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-indigo-300 transition-colors" style={{ color: 'var(--text-primary)', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-0.02em' }}>{study.title}</h3>
+                    <p className="text-sm leading-relaxed mb-5" style={{ color: 'var(--text-secondary)' }}>{study.description}</p>
 
-                    <div className="flex items-center justify-between gap-4 pt-4 border-t border-white/[0.06]">
+                    <div className="flex items-center justify-between gap-4 pt-4" style={{ borderTop: '1px solid var(--border-color)' }}>
                       <div className="flex gap-1.5 flex-wrap">
                         {study.tags.map((tag, j) => (
-                          <span key={j} className="px-2.5 py-1 bg-white/[0.04] border border-white/[0.08] rounded-md text-[11px] font-medium text-[#64748b] hover:border-indigo-500/30 hover:text-indigo-400 transition-colors">
+                          <span key={j} className="px-2.5 py-1 rounded-md text-[11px] font-medium hover:border-indigo-500/30 hover:text-indigo-400 transition-colors" style={{ backgroundColor: 'var(--accent-primary-muted)', border: '1px solid var(--border-default)', color: 'var(--text-muted)' }}>
                             {tag}
                           </span>
                         ))}
