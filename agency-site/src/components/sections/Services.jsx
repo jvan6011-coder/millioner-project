@@ -22,7 +22,7 @@ export default function Services() {
             return (
               <AnimatedSection key={i} delay={i * 0.15} direction={i === 0 ? 'left' : i === 2 ? 'right' : 'up'}>
                 <TiltCard className="h-full">
-                  <div className="group rounded-2xl p-7 h-full hover:border-indigo-500/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-default)' }}>
+                  <div className="group rounded-2xl p-5 sm:p-7 h-full hover:border-indigo-500/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-default)' }}>
                     <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/40 transition-all duration-300">
                       <Icon className="w-5 h-5 text-indigo-400" />
                     </div>

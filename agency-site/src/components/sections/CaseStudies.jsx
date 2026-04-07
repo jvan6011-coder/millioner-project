@@ -20,7 +20,7 @@ export default function CaseStudies() {
               <TiltCard>
                 <div className="group relative rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-default)' }}>
                   {/* Gradient header */}
-                  <div className={`h-44 bg-gradient-to-br ${study.gradient} relative overflow-hidden`}>
+                  <div className={`h-32 sm:h-44 bg-gradient-to-br ${study.gradient} relative overflow-hidden`}>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
                     {/* Animated shine on hover */}
                     <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
@@ -32,11 +32,11 @@ export default function CaseStudies() {
                     </div>
                   </div>
 
-                  <div className="p-7">
+                  <div className="p-5 sm:p-7">
                     <h3 className="text-lg font-semibold mb-2 group-hover:text-indigo-300 transition-colors" style={{ color: 'var(--text-primary)', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-0.02em' }}>{study.title}</h3>
                     <p className="text-sm leading-relaxed mb-5" style={{ color: 'var(--text-secondary)' }}>{study.description}</p>
 
-                    <div className="flex items-center justify-between gap-4 pt-4" style={{ borderTop: '1px solid var(--border-color)' }}>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 pt-4" style={{ borderTop: '1px solid var(--border-color)' }}>
                       <div className="flex gap-1.5 flex-wrap">
                         {study.tags.map((tag, j) => (
                           <span key={j} className="px-2.5 py-1 rounded-md text-[11px] font-medium hover:border-indigo-500/30 hover:text-indigo-400 transition-colors" style={{ backgroundColor: 'var(--accent-primary-muted)', border: '1px solid var(--border-default)', color: 'var(--text-muted)' }}>

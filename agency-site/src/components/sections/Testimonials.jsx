@@ -18,7 +18,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <AnimatedSection key={i} delay={i * 0.15} direction={i === 0 ? 'left' : i === 2 ? 'right' : 'up'}>
               <TiltCard className="h-full">
-                <div className="rounded-2xl p-7 h-full flex flex-col hover:border-indigo-500/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-default)' }}>
+                <div className="rounded-2xl p-5 sm:p-7 h-full flex flex-col hover:border-indigo-500/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-default)' }}>
                   <Quote className="w-8 h-8 text-indigo-500/20 mb-5" />
                   <p className="text-sm leading-relaxed flex-1 mb-8 italic" style={{ color: 'var(--text-secondary)' }}>
                     "{t.quote}"

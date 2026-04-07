@@ -45,7 +45,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <button className="md:hidden p-2 rounded-lg transition-colors" style={{ color: 'var(--text-primary)' }} onClick={() => setMobileOpen(!mobileOpen)}>
+          <button className="md:hidden p-2 rounded-lg transition-colors" style={{ color: 'var(--text-primary)', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? 'Close menu' : 'Open menu'}>
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
@@ -55,12 +55,13 @@ export default function Navbar() {
         <div className="md:hidden backdrop-blur-xl" style={{ backgroundColor: 'var(--nav-bg)', borderBottom: '1px solid var(--border-color)' }}>
           <div className="px-4 py-3 space-y-1">
             {navLinks.map(link => (
-              <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="block transition-all py-2.5 px-3 rounded-lg text-base hover:bg-[var(--accent-primary-muted)]" style={{ color: 'var(--text-secondary)' }}>
+              <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="block transition-all py-3 px-3 rounded-lg text-base hover:bg-[var(--accent-primary-muted)]" style={{ color: 'var(--text-secondary)', minHeight: '44px', display: 'flex', alignItems: 'center' }}>
                 {link.label}
               </a>
             ))}
-            <div className="pt-3 pb-1">
-              <Button size="sm" className="w-full">Book a Call</Button>
+            <div className="flex items-center justify-between pt-3 pb-1 gap-3">
+              <ThemeToggle />
+              <Button size="sm" className="flex-1" style={{ minHeight: '44px' }}>Book a Call</Button>
             </div>
           </div>
         </div>

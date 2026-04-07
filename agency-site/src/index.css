@@ -71,10 +71,12 @@ html {
 /* ===== PREMIUM TYPOGRAPHY SCALE ===== */
 h1, .h1 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 h2, .h2 {
@@ -195,4 +197,24 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ===== Mobile responsiveness ===== */
+@media (max-width: 639px) {
+  /* Ensure text never goes below 14px on mobile */
+  body {
+    font-size: max(0.875rem, 14px);
+  }
+
+  /* Tighter section padding on mobile */
+  section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* Prevent any horizontal overflow */
+  .max-w-\[1200px\] {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }

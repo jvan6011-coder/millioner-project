@@ -36,11 +36,11 @@ export default function Pricing() {
           subtitle="Every engagement is designed to pay for itself. Choose the model that fits your needs."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch pt-4">
           {pricingTiers.map((tier, i) => (
             <AnimatedSection key={i} delay={i * 0.15} direction="scale">
               <TiltCard className="h-full">
-                <div className="relative rounded-2xl p-7 lg:p-8 h-full flex flex-col transition-all duration-300" style={getCardStyle(tier)}>
+                <div className="relative rounded-2xl p-5 sm:p-7 lg:p-8 h-full flex flex-col transition-all duration-300 overflow-hidden" style={getCardStyle(tier)}>
                   {tier.highlighted && (
                     <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-indigo-500 text-white text-[11px] font-semibold uppercase rounded-full shadow-lg shadow-indigo-500/30 z-10" style={{ letterSpacing: '0.05em' }}>
                       Most Popular
@@ -67,7 +67,7 @@ export default function Pricing() {
                   </h3>
                   <p className="text-sm mb-6 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{tier.description}</p>
                   <div className="mb-8 pb-6" style={{ borderBottom: '1px solid var(--border-color)' }}>
-                    <span className="text-4xl font-bold" style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-0.03em', color: tier.premium ? undefined : 'var(--text-primary)' }}>
+                    <span className="text-3xl sm:text-4xl font-bold" style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-0.03em', color: tier.premium ? undefined : 'var(--text-primary)', wordBreak: 'break-word' }}>
                       {tier.premium ? (
                         <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">{tier.price}</span>
                       ) : tier.price}

@@ -50,6 +50,7 @@ export default function Contact() {
                           backgroundColor: 'var(--input-bg)',
                           border: '1px solid var(--border-default)',
                           color: 'var(--text-primary)',
+                          minHeight: '44px',
                         }}
                       />
                     </div>
@@ -65,6 +66,7 @@ export default function Contact() {
                         backgroundColor: 'var(--input-bg)',
                         border: '1px solid var(--border-default)',
                         color: 'var(--text-primary)',
+                        minHeight: '44px',
                       }}
                     />
                   </div>
@@ -84,7 +86,7 @@ export default function Contact() {
                 <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--text-secondary)' }}>
                   Book a free 30-minute strategy call. We'll discuss your business, identify quick wins, and outline a roadmap -- whether or not you work with us.
                 </p>
-                <Button variant="outline">
+                <Button variant="outline" style={{ minHeight: '44px' }}>
                   <Calendar className="w-4 h-4 mr-2" />
                   Book a Free Call
                 </Button>
