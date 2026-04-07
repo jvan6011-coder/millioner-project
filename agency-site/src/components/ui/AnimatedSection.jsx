@@ -1,28 +1,35 @@
 import { useEffect, useRef, useState } from 'react'
 
 export default function AnimatedSection({ children, className = '', delay = 0, direction = 'up' }) {
-  const [isVisible, setIsVisible] = useState(false)
+  const [triggered, setTriggered] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setTriggered(true)
           observer.unobserve(entry.target)
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px 50px 0px' }
     )
     if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
+
+    // Fallback: if not triggered after 2s, show anyway
+    const timeout = setTimeout(() => setTriggered(true), 2000 + delay * 1000)
+
+    return () => {
+      observer.disconnect()
+      clearTimeout(timeout)
+    }
+  }, [delay])
 
   const directions = {
-    up: 'translate3d(0, 40px, 0)',
-    down: 'translate3d(0, -40px, 0)',
-    left: 'translate3d(40px, 0, 0)',
-    right: 'translate3d(-40px, 0, 0)',
+    up: 'translateY(30px)',
+    down: 'translateY(-30px)',
+    left: 'translateX(30px)',
+    right: 'translateX(-30px)',
     scale: 'scale(0.95)',
   }
 
@@ -31,10 +38,9 @@ export default function AnimatedSection({ children, className = '', delay = 0, d
       ref={ref}
       className={className}
       style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translate3d(0, 0, 0) scale(1)' : directions[direction],
-        transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
-        willChange: 'opacity, transform',
+        opacity: triggered ? 1 : 0,
+        transform: triggered ? 'none' : directions[direction],
+        transition: `opacity 0.6s ease-out ${delay}s, transform 0.6s ease-out ${delay}s`,
       }}
     >
       {children}

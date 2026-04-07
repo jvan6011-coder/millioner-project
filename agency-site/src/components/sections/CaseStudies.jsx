@@ -6,7 +6,7 @@ import { ArrowUpRight } from 'lucide-react'
 
 export default function CaseStudies() {
   return (
-    <section id="case-studies" className="py-24 md:py-32 bg-[#0a0a0f]">
+    <section id="case-studies" className="py-24 md:py-32 bg-[#0f1117]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Our Work"
@@ -18,7 +18,7 @@ export default function CaseStudies() {
           {caseStudies.map((study, i) => (
             <AnimatedSection key={i} delay={i * 0.12} direction={i % 2 === 0 ? 'left' : 'right'}>
               <TiltCard>
-                <div className="group relative bg-[#16161f] border border-white/[0.08] rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]">
+                <div className="group relative bg-[#1c1e2a] border border-white/[0.08] rounded-2xl overflow-hidden hover:border-indigo-500/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]">
                   {/* Gradient header */}
                   <div className={`h-44 bg-gradient-to-br ${study.gradient} relative overflow-hidden`}>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />

@@ -6,7 +6,7 @@ import { testimonials } from '../../data/testimonials'
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 md:py-32 bg-[#0a0a0f]">
+    <section id="testimonials" className="py-24 md:py-32 bg-[#0f1117]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Testimonials"
@@ -18,7 +18,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <AnimatedSection key={i} delay={i * 0.15} direction={i === 0 ? 'left' : i === 2 ? 'right' : 'up'}>
               <TiltCard className="h-full">
-                <div className="bg-[#16161f] border border-white/[0.08] rounded-2xl p-7 h-full flex flex-col hover:border-indigo-500/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]">
+                <div className="bg-[#1c1e2a] border border-white/[0.08] rounded-2xl p-7 h-full flex flex-col hover:border-indigo-500/30 transition-all duration-300 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]">
                   <Quote className="w-8 h-8 text-indigo-500/20 mb-5" />
                   <p className="text-[#c0ccda] text-sm leading-relaxed flex-1 mb-8 italic">
                     "{t.quote}"

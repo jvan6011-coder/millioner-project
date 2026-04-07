@@ -1,21 +1,22 @@
 import { useEffect, useRef, useState } from 'react'
 
 export default function SectionHeading({ label, title, subtitle }) {
-  const [isVisible, setIsVisible] = useState(false)
+  const [triggered, setTriggered] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setTriggered(true)
           observer.unobserve(entry.target)
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px 50px 0px' }
     )
     if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
+    const timeout = setTimeout(() => setTriggered(true), 1500)
+    return () => { observer.disconnect(); clearTimeout(timeout) }
   }, [])
 
   return (
@@ -23,9 +24,9 @@ export default function SectionHeading({ label, title, subtitle }) {
       ref={ref}
       className="text-center mb-16 md:mb-20"
       style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-        transition: 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
+        opacity: triggered ? 1 : 0,
+        transform: triggered ? 'none' : 'translateY(25px)',
+        transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
       }}
     >
       {label && (

@@ -10,7 +10,7 @@ import Contact from './components/sections/Contact'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f] overflow-x-hidden">
+    <div className="min-h-screen bg-[#0f1117] overflow-x-hidden">
       <Navbar />
       <Hero />
       <div className="section-divider" />

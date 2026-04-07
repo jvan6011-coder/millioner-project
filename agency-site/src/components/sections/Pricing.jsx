@@ -7,7 +7,7 @@ import { pricingTiers } from '../../data/pricing'
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 md:py-32 bg-[#12121a]">
+    <section id="pricing" className="py-24 md:py-32 bg-[#161822]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Pricing"
@@ -19,7 +19,7 @@ export default function Pricing() {
           {pricingTiers.map((tier, i) => (
             <AnimatedSection key={i} delay={i * 0.15} direction="scale">
               <TiltCard className="h-full">
-                <div className={`relative rounded-2xl p-7 lg:p-8 h-full flex flex-col ${tier.highlighted ? 'bg-gradient-to-b from-indigo-500/10 via-[#16161f] to-[#16161f] border-2 border-indigo-500/40 shadow-[0_0_50px_rgba(99,102,241,0.08)]' : 'bg-[#16161f] border border-white/[0.08] hover:border-white/15'} transition-all duration-300`}>
+                <div className={`relative rounded-2xl p-7 lg:p-8 h-full flex flex-col ${tier.highlighted ? 'bg-gradient-to-b from-indigo-500/10 via-[#1c1e2a] to-[#1c1e2a] border-2 border-indigo-500/40 shadow-[0_0_50px_rgba(99,102,241,0.08)]' : 'bg-[#1c1e2a] border border-white/[0.08] hover:border-white/15'} transition-all duration-300`}>
                   {tier.highlighted && (
                     <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-indigo-500 text-white text-[11px] font-semibold uppercase tracking-wider rounded-full shadow-lg shadow-indigo-500/30">
                       Most Popular

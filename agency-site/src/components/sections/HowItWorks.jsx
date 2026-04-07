@@ -11,7 +11,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 md:py-32 bg-[#12121a]">
+    <section id="how-it-works" className="py-24 md:py-32 bg-[#161822]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Our Process"
@@ -28,7 +28,7 @@ export default function HowItWorks() {
                 )}
                 <div className="relative w-12 h-12 rounded-full bg-indigo-500/10 border border-indigo-500/25 flex items-center justify-center mx-auto md:mx-0 mb-5 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/50 group-hover:scale-110 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.15)]">
                   <step.icon className="w-5 h-5 text-indigo-400" />
-                  <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#12121a] border border-indigo-500/40 flex items-center justify-center text-[10px] font-bold text-indigo-400">
+                  <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#161822] border border-indigo-500/40 flex items-center justify-center text-[10px] font-bold text-indigo-400">
                     {i + 1}
                   </span>
                 </div>

@@ -21,7 +21,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-[#0a0a0f]/70 backdrop-blur-xl backdrop-saturate-150 border-b border-white/[0.08] shadow-[0_1px_30px_rgba(99,102,241,0.04)]' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-[#0f1117]/70 backdrop-blur-xl backdrop-saturate-150 border-b border-white/[0.08] shadow-[0_1px_30px_rgba(99,102,241,0.04)]' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="flex items-center gap-2.5 text-white font-bold text-xl tracking-tight">
@@ -49,7 +49,7 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-white/[0.08]">
+        <div className="md:hidden bg-[#0f1117]/90 backdrop-blur-xl border-b border-white/[0.08]">
           <div className="px-4 py-3 space-y-1">
             {navLinks.map(link => (
               <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="block text-[#94a3b8] hover:text-white hover:bg-white/[0.04] transition-all py-2.5 px-3 rounded-lg text-base">
