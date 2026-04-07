@@ -1,11 +1,19 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
-import Button from '../ui/Button'
+import MagneticButton from '../ui/MagneticButton'
+import MouseGradient from '../ui/MouseGradient'
+import Particles from '../ui/Particles'
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
+      {/* Particle background */}
+      <Particles count={60} />
+
+      {/* Mouse-following gradient */}
+      <MouseGradient />
+
+      {/* Static background gradients */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(99,102,241,0.15)_0%,_transparent_50%)]" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[120px]" />
 
@@ -29,7 +37,7 @@ export default function Hero() {
         >
           We Build AI That
           <br />
-          <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient-shift_3s_ease-in-out_infinite]">
             Works For Your Business
           </span>
         </motion.h1>
@@ -50,13 +58,13 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button size="lg">
+          <MagneticButton size="lg" variant="primary">
             Book a Free Consultation
             <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
-          <Button variant="outline" size="lg">
+          </MagneticButton>
+          <MagneticButton variant="outline" size="lg">
             See Our Work
-          </Button>
+          </MagneticButton>
         </motion.div>
 
         {/* Stats bar */}
@@ -72,10 +80,16 @@ export default function Hero() {
             { value: '2-6', label: 'Weeks to Launch' },
             { value: '40-70%', label: 'Cost Reduction' },
           ].map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
+              className="text-center group"
+            >
+              <div className="text-2xl md:text-3xl font-bold text-white group-hover:text-indigo-400 transition-colors duration-300">{stat.value}</div>
               <div className="text-[#94a3b8] text-sm mt-1">{stat.label}</div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>

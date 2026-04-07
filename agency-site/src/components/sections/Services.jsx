@@ -1,5 +1,5 @@
 import { Brain, Workflow, LineChart } from 'lucide-react'
-import Card from '../ui/Card'
+import TiltCard from '../ui/TiltCard'
 import SectionHeading from '../ui/SectionHeading'
 import AnimatedSection from '../ui/AnimatedSection'
 import { services } from '../../data/services'
@@ -20,22 +20,24 @@ export default function Services() {
           {services.map((service, i) => {
             const Icon = iconMap[service.icon]
             return (
-              <AnimatedSection key={i} delay={i * 0.1}>
-                <Card className="h-full">
-                  <div className="w-12 h-12 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-5">
-                    <Icon className="w-6 h-6 text-indigo-400" />
+              <AnimatedSection key={i} delay={i * 0.15} direction={i === 0 ? 'left' : i === 2 ? 'right' : 'up'}>
+                <TiltCard className="h-full">
+                  <div className="bg-[#16161f] border border-white/10 rounded-xl p-6 h-full hover:border-indigo-500/50 transition-colors duration-300">
+                    <div className="w-12 h-12 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-5 group-hover:bg-indigo-500/20 transition-colors">
+                      <Icon className="w-6 h-6 text-indigo-400" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
+                    <p className="text-[#94a3b8] text-sm leading-relaxed mb-5">{service.description}</p>
+                    <ul className="space-y-2">
+                      {service.features.map((f, j) => (
+                        <li key={j} className="text-sm text-[#94a3b8] flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
-                  <p className="text-[#94a3b8] text-sm leading-relaxed mb-5">{service.description}</p>
-                  <ul className="space-y-2">
-                    {service.features.map((f, j) => (
-                      <li key={j} className="text-sm text-[#94a3b8] flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
+                </TiltCard>
               </AnimatedSection>
             )
           })}

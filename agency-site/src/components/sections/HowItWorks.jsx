@@ -21,16 +21,16 @@ export default function HowItWorks() {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {steps.map((step, i) => (
-            <AnimatedSection key={i} delay={i * 0.1}>
-              <div className="relative text-center md:text-left">
+            <AnimatedSection key={i} delay={i * 0.15} direction="up">
+              <div className="relative text-center md:text-left group">
                 {i < steps.length - 1 && (
                   <div className="hidden md:block absolute top-6 left-[calc(50%+30px)] w-[calc(100%-60px)] h-[1px] bg-gradient-to-r from-indigo-500/50 to-transparent" />
                 )}
-                <div className="w-12 h-12 rounded-full bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center mx-auto md:mx-0 mb-4">
+                <div className="w-12 h-12 rounded-full bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center mx-auto md:mx-0 mb-4 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/50 group-hover:scale-110 transition-all duration-300">
                   <step.icon className="w-5 h-5 text-indigo-400" />
                 </div>
                 <div className="text-indigo-400 text-sm font-medium mb-2">Step {i + 1}</div>
-                <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-indigo-300 transition-colors">{step.title}</h3>
                 <p className="text-[#94a3b8] text-sm leading-relaxed">{step.description}</p>
               </div>
             </AnimatedSection>
