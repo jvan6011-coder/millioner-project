@@ -10,14 +10,20 @@ import Contact from './components/sections/Contact'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
+    <div className="min-h-screen bg-[#0a0a0f] overflow-x-hidden">
       <Navbar />
       <Hero />
+      <div className="section-divider" />
       <Services />
+      <div className="section-divider" />
       <HowItWorks />
+      <div className="section-divider" />
       <CaseStudies />
+      <div className="section-divider" />
       <Pricing />
+      <div className="section-divider" />
       <Testimonials />
+      <div className="section-divider" />
       <Contact />
       <Footer />
     </div>
