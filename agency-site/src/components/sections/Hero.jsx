@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles } from 'lucide-react'
 import MagneticButton from '../ui/MagneticButton'
 import MouseGradient from '../ui/MouseGradient'
 import Particles from '../ui/Particles'
+import GlowOrb from '../ui/GlowOrb'
 
 export default function Hero() {
   return (
@@ -42,10 +43,20 @@ export default function Hero() {
           </span>
         </motion.h1>
 
+        {/* Glowing 3D Orb */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="flex justify-center my-8"
+        >
+          <GlowOrb size={240} />
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           className="text-[#94a3b8] text-lg md:text-xl max-w-2xl mx-auto mb-10"
         >
           From intelligent automation to custom AI solutions, we help companies
