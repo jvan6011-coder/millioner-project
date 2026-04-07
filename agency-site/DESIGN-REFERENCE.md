@@ -1149,5 +1149,79 @@ li + li {
 
 ---
 
-*Compiled from research of Awwwards winners, top SaaS sites, and design system
-best practices. April 2026.*
+---
+
+## 8. Minimalist Design Principles (Pinterest/Awwwards Research)
+
+### 8.1 Core Rules of Minimalism
+
+1. **Every element must earn its place** -- if removing something doesn't hurt, remove it
+2. **Whitespace is an active design element**, not empty space -- it creates hierarchy and breathing room
+3. **Maximum 2 fonts, 2-3 colors** -- constraint breeds elegance
+4. **Content-first design** -- layout serves the message, never the other way around
+5. **Progressive disclosure** -- show only what's needed now, reveal the rest on interaction
+
+### 8.2 Minimalist Color Rules
+
+```
+Dark theme minimalist palette:
+- 1 background color (not pure black): #09090b or #0a0a0f
+- 1 surface color for cards: 5-8% lighter than background
+- 1 accent color only: indigo, blue, or violet
+- 3 text levels: primary (#f4f4f5), secondary (#a1a1aa), muted (#71717a)
+- NO more than 1 accent color. Period.
+
+Light theme minimalist palette:
+- Background: #fafafa or #ffffff
+- Surface: #ffffff with subtle shadow, or #f5f5f5
+- Same single accent color
+```
+
+### 8.3 Minimalist Typography
+
+- **One font family is ideal** (Inter, or Space Grotesk for headings + Inter body)
+- Headings: 700 weight, tight letter-spacing (-0.03em), tight line-height (1.1)
+- Body: 400 weight, 16-18px, line-height 1.6-1.7
+- **Never more than 4 font sizes** on a single viewport
+- Let size + weight do the hierarchy work, not color or decoration
+
+### 8.4 Minimalist Spacing
+
+- **Generous section padding**: 120-160px on desktop
+- **Asymmetric layouts**: intentional imbalance creates visual interest without clutter
+- **Content max-width: 680px** for text-heavy sections (optimal reading line length)
+- **Grid: 12-column** with generous gutters (32-48px)
+- **Card gaps: 24-32px** -- not too tight, not too loose
+
+### 8.5 Minimalist Animations
+
+- **Subtle, purposeful only** -- animate to communicate, not to decorate
+- **Duration: 200-400ms max** for UI transitions
+- **Ease: ease-out or cubic-bezier(0.33, 1, 0.68, 1)** -- never bounce or elastic
+- **Scroll animations**: fade-in only, no slides or scales -- maximum subtlety
+- **Hover states**: opacity change or slight translate, nothing dramatic
+
+### 8.6 What Makes Minimalist Sites Premium
+
+| Do | Don't |
+|---|---|
+| One hero image/video, large and confident | Multiple competing visuals |
+| Single clear CTA per section | 3+ buttons fighting for attention |
+| Generous padding (feels expensive) | Cramped spacing (feels cheap) |
+| Subtle borders rgba(0,0,0,0.06) | Thick visible borders |
+| Motion that feels natural | Animation that feels like a demo |
+| Photography/video as hero, not illustrations | Clip-art or generic stock |
+| Monochrome + 1 accent | Rainbow gradients |
+
+### 8.7 Minimalist Reference Sites
+
+- **Apple** (apple.com) -- king of whitespace, product-focused
+- **Stripe** (stripe.com) -- animated gradients done with restraint
+- **Linear** (linear.app) -- dark minimalism perfected
+- **Dropbox** (dropbox.com) -- clean illustration + generous space
+- **Squarespace** (squarespace.com) -- typography-driven minimalism
+- **Notion** (notion.so) -- content-first, no decoration
+- **Arc Browser** (arc.net) -- bold typography + single accent color
+
+*Compiled from research of Awwwards winners, top SaaS sites, Pinterest minimalist design
+collections, and design system best practices. April 2026.*
